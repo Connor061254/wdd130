@@ -1,0 +1,127 @@
+/* Sets the max-width for the page and centers the content */
+#content {
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+/* Styles for navigation links */
+nav a {
+    text-align: center;
+    color: #fcfbfb;
+    text-decoration: none;
+}
+
+/* Styles for the hero message elements */
+#hero-msg h1, #hero-msg h4 {
+    text-align: center;
+}
+
+/* Styles for the button container */
+.button-box {
+    text-align: center;
+}
+
+/* Styles for the main content sections */
+main section {
+    text-align: center;
+}
+
+/* Sets the height for the background div */
+#background {
+    height: 725px;
+    background-color: #d9c2a3; /* Light Tan */
+}
+
+/* Styles for the body */
+body {
+    background-color: #fcfbfb; /* Off-white */
+}
+
+/* Styles for the header */
+header {
+    background-color: rgba(20, 30, 13, .7); /* Transparent Dark Green */
+}
+
+/* Hover effect for navigation links */
+nav a:hover {
+    background-color: black;
+    color: #d9c2a3; /* Tan */
+}
+
+/* Styles for call-to-action buttons */
+.book, .join {
+    background-color: #0077B6; /* Medium Blue */
+    color: #fcfbfb;
+    text-decoration: none;
+}
+
+/* Hover effect for call-to-action buttons */
+.book:hover, .join:hover {
+    background-color: #023E8A; /* Darker Blue */
+}
+
+/* Styles for the message section */
+.msg {
+    background-color: #d9c2a3; /* Light Tan */
+}
+
+/* Styles for the footer */
+footer {
+    background-color: #393D3F; /* Dark Gray */
+    color: #fcfbfb;
+}
+
+/* Text color for the home page title */
+.home-title {
+    color: #023E8A; /* Dark Blue */
+}
+
+/* Text color for h4 elements */
+h4 {
+    color: #393D3F; /* Dark Gray */
+}
+
+/* Text color for the message section heading and paragraph */
+.msg h2 {
+    color: #393D3F;
+}
+
+.msg p {
+    color: #393D3F;
+}
+
+/* Styles for footer links */
+footer a {
+    color: #fcfbfb;
+    text-decoration: none;
+}
+
+/* Hover effect for footer links */
+footer a:hover {
+    color: #d9c2a3;
+}
+
+/* Width for the logo image */
+.logo {
+    width: 80px;
+}
+
+/* Width for the card icons */
+.icon {
+    width: 80px;
+}
+
+/* Width for the hero image */
+#hero-img {
+    width: 100%;
+}
+
+/* Font size for the footer text */
+footer p {
+    font-size: 1.2em;
+}
+
+/* Underline hover effect for links inside footer paragraphs */
+footer p a:hover {
+    text-decoration: underline;
+}

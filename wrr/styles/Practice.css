@@ -1,0 +1,11 @@
+.nav-container {
+  display: flex; /* Turns on flexbox */
+  justify-content: space-between; /* Pushes logo and nav to opposite ends */
+  align-items: center; /* Vertically centers everything */
+  padding: 10px; /* Use padding instead of a fixed height */
+  border: 2px solid lightgray;
+}
+.logo {
+  max-height: 60px; /* Adjust as needed */
+  width: auto; /* Maintain aspect ratio */
+}
