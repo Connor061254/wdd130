@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Guitar Journey</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Base styles and background */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a0a0a;
+            /* Create the grid pattern */
+            background-image:
+                linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        /* Glassmorphism base style */
+        .glass-panel {
+            background: rgba(30, 30, 30, 0.5);
+            -webkit-backdrop-filter: blur(12px);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.05);
+        }
+
+        /* Glow effect for text */
+        .glow-text {
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+        }
+        
+        /* Button specific styling */
+        .nav-button {
+            padding: 10px 24px;
+            border-radius: 9999px; /* pill shape */
+            color: rgba(255, 255, 255, 0.7);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(40, 40, 40, 0.5);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-button:hover {
+            color: white;
+            border-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Active button state */
+        .nav-button.active {
+            color: white;
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.4);
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.3), inset 0 0 5px rgba(255, 255, 255, 0.2);
+        }
+
+        /* Interactive Canvas Styling */
+        #interactive-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 0.75rem; /* 12px */
+            cursor: pointer;
+        }
+        
+        /* Fretboard diagram style */
+        .fretboard {
+            font-family: 'Courier New', Courier, monospace;
+            white-space: pre;
+            text-align: left;
+            padding: 1rem;
+            background: rgba(0,0,0,0.2);
+            border-radius: 0.5rem;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+            line-height: 1.2;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body class="text-white flex items-center justify-center min-h-screen p-4">
+
+    <!-- Main Container -->
+    <div class="w-full max-w-3xl mx-auto glass-panel rounded-2xl shadow-2xl overflow-hidden">
+        
+        <!-- Header -->
+        <header class="p-6 border-b border-gray-200/10 text-center">
+            <h1 class="text-2xl md:text-3xl font-bold glow-text tracking-wider">
+                Your Guitar Journey
+            </h1>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="p-4 border-b border-gray-200/10">
+            <div id="nav-container" class="flex justify-center items-center gap-2 md:gap-4 flex-wrap">
+                <button class="nav-button active" data-page="home">Home</button>
+                <button class="nav-button" data-page="beginner">Beginner</button>
+                <button class="nav-button" data-page="intermediate">Intermediate</button>
+                <button class="nav-button" data-page="advanced">Advanced</button>
+            </div>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="p-6 md:p-8">
+            
+            <!-- Home Page -->
+            <div id="page-home" class="page-content space-y-8">
+                <div class="relative w-full h-64 md:h-80 glass-panel rounded-xl flex items-center justify-center">
+                    <canvas id="interactive-canvas"></canvas>
+                    <div class="z-10 text-center pointer-events-none">
+                        <h2 class="text-xl font-semibold glow-text opacity-80">Interactive Strings</h2>
+                        <p class="text-sm text-gray-300">Move your mouse to play</p>
+                    </div>
+                </div>
+                <div class="w-full min-h-[80px] glass-panel rounded-xl p-5 flex items-center justify-center text-center">
+                    <p class="text-gray-300">Welcome! Select your skill level from the navigation above to begin.</p>
+                </div>
+            </div>
+
+            <!-- Beginner Page -->
+            <div id="page-beginner" class="page-content hidden space-y-6">
+                <h2 class="text-2xl font-bold glow-text text-center">Beginner's Corner: Your First Scales</h2>
+                <div class="glass-panel rounded-xl p-5">
+                    <h3 class="text-xl font-semibold mb-2 glow-text">1. The Minor Pentatonic Scale</h3>
+                    <p class="text-gray-300 mb-4">This is one of the most famous scales in rock, blues, and pop music. It's simple, sounds great, and is super fun to play. Here's the first shape, starting on the 5th fret of the low E string (the 'A' note).</p>
+                    <div class="fretboard">
+e|---------------------------5---8-|
+B|-----------------------5---8-----|
+G|-------------------5---7---------|
+D|---------------5---7-------------|
+A|-----------5---7-----------------|
+E|-------5---8---------------------|
+Frets:   5   6   7   8   9   10
+                    </div>
+                    <p class="text-gray-300 text-sm">How to read this: The numbers are the frets you play on each string (e is the thinnest string, E is the thickest). Play the notes one by one, from thickest string to thinnest and back down.</p>
+                </div>
+                <div class="glass-panel rounded-xl p-5">
+                    <h3 class="text-xl font-semibold mb-2 glow-text">2. The Major Scale</h3>
+                    <p class="text-gray-300 mb-4">This is the classic "Do-Re-Mi" scale. It's the foundation for countless melodies and chords. Learning it will unlock your understanding of how music works. Here's a common shape for the C Major scale.</p>
+                     <div class="fretboard">
+e|-------------------------------7---8-|
+B|---------------------------8---10----|
+G|-----------------------7---9---------|
+D|-------------------7---9---10--------|
+A|-----------7---8---10----------------|
+E|-------8---10------------------------|
+Frets:   7   8   9   10  11  12
+                    </div>
+                    <p class="text-gray-300 text-sm">Notice this scale has seven notes instead of five. It has a happier, brighter sound compared to the pentatonic scale.</p>
+                </div>
+                 <div class="glass-panel rounded-xl p-5">
+                    <h3 class="text-xl font-semibold mb-2 glow-text">How to Practice & Create Music</h3>
+                    <p class="text-gray-300">Playing scales up and down is just the start. To make music, try this:</p>
+                    <ul class="list-disc list-inside text-gray-300 mt-2 space-y-1">
+                        <li><strong>Find a Backing Track:</strong> Search on YouTube for an "A minor backing track" or "C major backing track". Playing your scales over music is the best way to practice.</li>
+                        <li><strong>Experiment:</strong> Don't just play the notes in order. Try skipping strings, playing notes multiple times, and mixing up the rhythm.</li>
+                        <li><strong>Listen:</strong> Pay attention to which notes sound best over the music. This is how you develop your ear and start creating your own melodies!</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Intermediate Page (Placeholder) -->
+            <div id="page-intermediate" class="page-content hidden">
+                 <div class="glass-panel rounded-xl p-5 text-center">
+                    <h2 class="text-2xl font-bold glow-text">Intermediate Lessons</h2>
+                    <p class="text-gray-300 mt-4">Content for intermediate players, like barre chords and music theory, will be here soon. Keep practicing!</p>
+                </div>
+            </div>
+
+            <!-- Advanced Page (Placeholder) -->
+            <div id="page-advanced" class="page-content hidden">
+                <div class="glass-panel rounded-xl p-5 text-center">
+                    <h2 class="text-2xl font-bold glow-text">Advanced Techniques</h2>
+                    <p class="text-gray-300 mt-4">Ready to shred? Advanced topics like sweep picking and complex modes will be covered here. Stay tuned!</p>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- Navigation Logic ---
+            const navContainer = document.getElementById('nav-container');
+            const navButtons = navContainer.querySelectorAll('.nav-button');
+            const pages = document.querySelectorAll('.page-content');
+
+            function showPage(pageId) {
+                pages.forEach(page => {
+                    page.classList.add('hidden');
+                });
+                const activePage = document.getElementById(`page-${pageId}`);
+                if (activePage) {
+                    activePage.classList.remove('hidden');
+                }
+
+                navButtons.forEach(button => {
+                    if (button.dataset.page === pageId) {
+                        button.classList.add('active');
+                    } else {
+                        button.classList.remove('active');
+                    }
+                });
+            }
+            
+            navContainer.addEventListener('click', (e) => {
+                const targetButton = e.target.closest('.nav-button');
+                if (!targetButton) return;
+                
+                const pageId = targetButton.dataset.page;
+                showPage(pageId);
+            });
+
+
+            // --- Interactive Guitar String Canvas Logic ---
+            const canvas = document.getElementById('interactive-canvas');
+            const ctx = canvas.getContext('2d');
+            
+            const mouse = { x: undefined, y: undefined };
+            let time = 0;
+
+            class String {
+                constructor(y, thickness, speed) {
+                    this.y = y;
+                    this.thickness = thickness;
+                    this.speed = speed;
+                    this.amplitude = 0;
+                    this.damping = 0.95;
+                }
+
+                draw() {
+                    ctx.beginPath();
+                    ctx.moveTo(0, this.y);
+                    for (let x = 0; x < canvas.width; x++) {
+                        const waveY = this.y + Math.sin(x * 0.05 + time * this.speed) * this.amplitude * Math.sin(x / canvas.width * Math.PI);
+                        ctx.lineTo(x, waveY);
+                    }
+                    ctx.strokeStyle = `rgba(255, 255, 255, ${0.5 + Math.abs(this.amplitude) / 20})`;
+                    ctx.lineWidth = this.thickness;
+                    ctx.shadowColor = 'white';
+                    ctx.shadowBlur = 10;
+                    ctx.stroke();
+                    ctx.shadowBlur = 0;
+                }
+
+                update() {
+                    if (mouse.y !== undefined) {
+                        const dist = Math.abs(mouse.y - this.y);
+                        if (dist < 20 && this.amplitude < 15) {
+                           this.amplitude += 5;
+                        }
+                    }
+                    this.amplitude *= this.damping;
+                    this.draw();
+                }
+            }
+
+            let strings = [];
+            function initStrings() {
+                strings = [];
+                const stringCount = 6;
+                const spacing = canvas.height / (stringCount + 1);
+                for(let i = 0; i < stringCount; i++) {
+                    const y = spacing * (i + 1);
+                    const thickness = 1 + i * 0.3;
+                    const speed = 5 + i * 0.5;
+                    strings.push(new String(y, thickness, speed));
+                }
+            }
+            
+            function animate() {
+                requestAnimationFrame(animate);
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                time += 0.1;
+                strings.forEach(string => string.update());
+            }
+
+            function setCanvasSize() {
+                if (!canvas) return;
+                const container = canvas.parentElement;
+                canvas.width = container.clientWidth;
+                canvas.height = container.clientHeight;
+                initStrings();
+            }
+
+            canvas.addEventListener('mousemove', (event) => {
+                const rect = canvas.getBoundingClientRect();
+                mouse.x = event.clientX - rect.left;
+                mouse.y = event.clientY - rect.top;
+            });
+
+            canvas.addEventListener('mouseleave', () => {
+                mouse.x = undefined;
+                mouse.y = undefined;
+            });
+
+            window.addEventListener('resize', setCanvasSize);
+
+            // Initial setup
+            setCanvasSize();
+            animate();
+            showPage('home'); // Show home page by default
+        });
+    </script>
+</body>
+</html>
