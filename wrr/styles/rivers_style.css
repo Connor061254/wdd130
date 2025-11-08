@@ -1,0 +1,81 @@
+/* --- Basic Page Styles --- */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.7;
+    background-color: #f9f9f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* --- Header --- */
+header {
+    background-color: #004a99; /* A deep, river-like blue */
+    color: #ffffff;
+    padding: 25px 20px;
+    text-align: center;
+    border-bottom: 4px solid #003366;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
+
+header p {
+    margin: 5px 0 0;
+    font-size: 1.1em;
+    opacity: 0.9;
+}
+
+/* --- Main Content Container --- */
+main {
+    max-width: 900px; /* Limits the width for better readability */
+    margin: 30px auto; /* Centers the content */
+    padding: 0 20px;
+}
+
+/* --- River Section Styling (for each river) --- */
+.river-section {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    margin-bottom: 40px;
+    overflow: hidden; /* Keeps the rounded corners with the image */
+}
+
+.river-section h2 {
+    font-size: 2em;
+    color: #004a99;
+    margin: 0;
+    padding: 25px 30px 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.river-image {
+    width: 100%; /* Makes the image responsive */
+    height: auto;
+    display: block;
+}
+
+.river-description {
+    padding: 20px 30px 30px;
+}
+
+.river-description p {
+    margin-bottom: 1em;
+}
+
+.river-description p:last-child {
+    margin-bottom: 0;
+}
+
+/* --- Footer --- */
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    font-size: 0.9em;
+    color: #777;
+    border-top: 1px solid #ddd;
+}
