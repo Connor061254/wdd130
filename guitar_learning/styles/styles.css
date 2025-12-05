@@ -160,10 +160,12 @@ nav a:hover {
 }
 
 .image-placeholder {
-    float: right;
-    width: 250px;
-    height: auto; 
-    margin: 0 0 15px 20px; 
+    display: block;
+    float: none;
+    margin: 10px auto 20px auto;
+    width: 100%; 
+    max-width: 300px;
+    text-align: center;
 }
 
 .diagram-image {
